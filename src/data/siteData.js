@@ -10,7 +10,7 @@ export const siteData = {
     { label: "Home", link: "/" },
     { label: "About", link: "/about", sub_navigation: [
         { label: "Our Vision & Mission", link: "/about" }, // Agar koi aur page hai
-        { label: "Leadership Messages", link: "/about/messages" }, // Aapka Messages Page
+        { label: "Messages of Director", link: "/about/messages" }, // Aapka Messages Page
         { label: "Affiliations", link: "/affiliations" },
         { label: "Contact", link: "/contact" } 
       ]},
@@ -65,17 +65,25 @@ export const siteData = {
         },
         {
           type: "content",
-          title: "Who We Are",
-          text: "Advanced Health Sciences Institute of Nursing (AHSION) is committed to preparing professional and competent nurses who can meet national and international healthcare standards. With state-of-the-art labs, qualified faculty, and a supportive learning environment, we aim to produce compassionate and skilled healthcare providers.",
-          image: "/images/about-main.jpg",
+          title: "Introduction",
+text: `Advanced Health Sciences Institute of Nursing Karachi was established in 2015 in order to start General Nursing Diploma Program (03 years) and Diploma in Intensive Care Unit Nursing (Post Basic Specialization) (01 Year) to cover a huge area of Saeedabad Baldia Town, Karachi rendering our services for the betterment of nurses as there is a shortage of highly advance and profession nurses in Sindh province as well as in Pakistan. We as Advanced Health Sciences Institute of Nursing Karachi ION, started B.Sc. Nursing (Post-RN) (02 Years) and Post Basic Specialization Emergency & Disaster Management (01 Year) in 2018.
+
+    We have been providing services to our locality in term of rendering the Diploma in Nursing, B.Sc. Nursing (Post-RN) Post Basic Specialization ICU Nursing and Emergency & Disaster Management. Furthermore, as we followed the policies of PNC and never compromised on quality; hence, we have established a good name in the locality as well in the city. As the Government of Pakistan has declared the year of 2019 is the year of nursing profession, so we have started Generic BSN Degree program, CNA, CMW programs in this years. The said programs have been introduced at AHS-ION to fulfill the requirement and the need of area.
+
+    We are affiliated for clinical duties / services with Dr. Ruth K.M Pfau, Civil Hospital Karachi. AHS Institute of Nursing endeavors are:
+    • To provide advanced nursing education, introducing the latest technology of nursing profession.
+    • To make the education easy for the interested students without compromising the quality of care.
+    • To facilitate and provide students with all kind of facilities.`,          
+    image: "/images/about-main.jpg",
         },
         {
           type: "mission_vision",
           mission:
-            "To provide high-quality nursing education and foster a learning environment that promotes critical thinking, professionalism, and compassion.",
+`The institute of Nursing is committed to perfection in nursing education, clinical practice, nursing care, and community service. The institute prepares nursing students to be effective clinicians & leaders who will work to improve the health and health care of Pakistan people community and beyond, and contribute to the nursing profession through professional, scholarly & legal activities. 
+    
+    Our mission is to provide our trainee with the highest possible standard of nursing education using all available resources. The focus of our program is to provide a supportive learning environment for the students. We aim to train skilled & qualified professional nurses who deliver care that is tailored to each person's unique needs. Institution of dedicated to promoting patients well-being through skilled and educated nurses. We collaborate with stakeholder of health care of maximize the nursing care. We promote a supportive and learning environment for our staff, respecting each others needs, abilities and potential.`,
           vision:
-            "To become a leading nursing institution recognized for excellence in healthcare education, clinical training, and community service.",
-        },
+`As a institute, our vision is to produce competent nurses and health care providers whose care, discoveries, authentic and qualified voices may proved them the vital organ of a living society. Our society will start acknowledging their services. We also wish to create nursing in medical awareness into every home in Pakistan. Finally, we will be able to eradicate the minor diseases by improving health & quality care through excellence in nursing education, research & discoveries.`,        },
       ],
     },
 
