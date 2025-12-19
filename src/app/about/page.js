@@ -30,16 +30,16 @@ export default function About() {
 
           {/* RIGHT: IMAGE SIDE */}
           {/* 'h-full' ka matlab hai: Jitna bada barabar wala text hai, utna bada main bhi hunga */}
-          <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden shadow-lg">
-            <Image 
-              src={about.introduction.image} 
-              alt="AHSION Building"
-              fill
-              className="object-cover" // Image stretch ho kar crop hogi taake fit aa jaye
-            />
-          </div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-stretch">
+         <Image
+            src="/images/building.jpg" // Aapka image path
+            alt="Campus Building"
+            fill // Next.js 'fill' property use karein taake parent ki height le
+            className="object-cover rounded-xl" // object-cover image ko khichne se bachayega
+        />
+    </div>
 
-        </div>
+</div>
       </Section>
 
       {/* --- MISSION & VISION SECTION --- */}
