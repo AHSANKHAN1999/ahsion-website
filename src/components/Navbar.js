@@ -23,10 +23,11 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              <span className="font-semibold text-sm text-black md:block">
-  Advanced Health Sciences <br /> 
-  Institute of Nursing
-</span>
+              {/* 'hidden' laga diya taake mobile par gayab ho jaye */}
+              <span className="hidden md:block font-semibold text-lg text-black leading-tight">
+                Advanced Health Sciences <br /> 
+                Institute of Nursing
+              </span>
             </Link>
           </div>
 
