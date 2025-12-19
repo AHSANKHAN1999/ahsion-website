@@ -15,7 +15,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* --- LEFT SIDE: LOGO --- */}
+          {/* --- 1. LEFT SIDE: LOGO --- */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-2">
               <div className="relative w-12 h-12">
@@ -26,7 +26,8 @@ export default function Navbar() {
                   className="object-contain"
                 />
               </div>
-              {/* Text sirf Laptop (lg) par dikhega, Tablet/Mobile par hidden hai */}
+              
+              {/* Text sirf Laptop (lg) ya us se bare par dikhega. Mobile/Tablet par HIDDEN. */}
               <span className="hidden lg:block font-semibold text-lg text-black leading-tight">
                 Advanced Health Sciences <br /> 
                 Institute of Nursing
@@ -34,8 +35,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* --- MIDDLE: DESKTOP MENU (Links) --- */}
-          {/* CHANGE: 'md:flex' ko 'lg:flex' kar diya taake Tablet par bhi hidden rahe */}
+          {/* --- 2. MIDDLE: DESKTOP MENU --- */}
+          {/* CRITICAL FIX: 'hidden lg:flex'. Matlab Mobile/Tablet par GAYAB rahega. */}
           <div className="hidden lg:flex items-center h-full gap-4">
             {siteData.navigation.map((item) => (
               <div 
@@ -72,23 +73,23 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* --- RIGHT SIDE: MOBILE/TABLET MENU BUTTON --- */}
-          {/* CHANGE: 'md:hidden' ko 'lg:hidden' kar diya taake Tablet par bhi Button aye */}
+          {/* --- 3. RIGHT SIDE: MOBILE MENU BUTTON --- */}
+          {/* CRITICAL FIX: 'lg:hidden'. Matlab jab tak Laptop na ho, Button dikhao. */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-primary focus:outline-none p-2"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={30} /> : <Menu size={30} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* --- MOBILE MENU LIST (Opens when button clicked) --- */}
+      {/* --- 4. MOBILE MENU LIST (Opens when button clicked) --- */}
       {isOpen && (
-        <div className="lg:hidden bg-white shadow-lg border-t">
-          <div className="px-4 pt-2 pb-4 space-y-1">
+        <div className="lg:hidden bg-white shadow-lg border-t absolute top-20 left-0 w-full z-40">
+          <div className="px-4 pt-2 pb-4 space-y-1 bg-white">
             {siteData.navigation.map((item) => (
               <div key={item.label}> 
                 {item.sub_navigation ? (
@@ -111,7 +112,7 @@ export default function Navbar() {
 
                 {/* Mobile Dropdown Items */}
                 {item.sub_navigation && openDropdown === item.label && (
-                  <div className="pl-6 pt-1 pb-1 border-l-2 border-gray-100 ml-3">
+                  <div className="pl-6 pt-1 pb-1 border-l-2 border-gray-100 ml-3 bg-gray-50">
                     {item.sub_navigation.map((subItem) => (
                       <Link
                         key={subItem.label}
@@ -127,7 +128,7 @@ export default function Navbar() {
               </div>
             ))}
             
-            <div className="pt-4">
+            <div className="pt-4 pb-2">
                 <Link
                 href="/admissions"
                 onClick={() => setIsOpen(false)}
