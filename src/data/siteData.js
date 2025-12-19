@@ -221,20 +221,7 @@ export const siteData = {
     },
 
    leadership: [
-  {
-    id: 1,
-    title: "Message from Nursing Director",
-    name: "Ms. Almas Chapsi",
-    designation: "PhD Scholar, MSN, BSN, RM, RN",
-    image: "/images/nursing-director.jpg", // Make sure image ka naam yehi ho folder mein
-    message: `I warmly welcome all the students to the most leading school of nursing, Advanced Health Sciences Institute of Nursing, Karachi.
-    
-    Advanced Health Sciences Institute of Nursing Karachi was established in 2015-16. Throughout the period, it proved its standard services in the field of nursing with many achievements, such as topping in Diploma and Sterilization programs. It has launched Generic BSN & Post RN BSN programs for future nurses affiliated with International University (Dow University of Health Sciences).
-    
-    The Institute offers students the opportunity to study and learn in a supportive environment that recognizes the special needs and commitments of the adult learner. In keeping pace with rapid advancements in nursing education, to ensure integration of technology-enhanced learning in its pedagogy and to improve acquisition of present and critical clinical skills, the Institute is constructing a state-of-the-art Centre for Innovation in Nursing Education.
-    
-    We strongly believe that nursing students are responsible and accountable for quality nursing practice; thus, they need to be appropriately trained, oriented, and directly supervised. Our highly qualified and motivated professionals provide the skills and knowledge needed to meet the challenges of today.`
-  },
+
   {
     id: 2,
     title: "Message from Director & Managing Director",
@@ -246,7 +233,21 @@ export const siteData = {
     To prove the motto true, we have qualified faculty members, spacious air-conditioned classrooms equipped with the latest teaching aids, a skill lab, science lab, computer lab, and library. We expect a learning attitude and deep interest in study from your end. We leave no stone unturned in fulfilling the requirements of nurses in Pakistan. Our efforts will never cease for the betterment of the nursing profession.
     
     This is our commitment that no student is going to be deprived of quality education just because of financial crises. Financial assistance is awaiting deserving & outstanding students. Finally, I wish all prospective students a very bright future ahead and welcome them to AHS-ION for their educational journey.`
-  }
+  },
+   {
+    id: 1,
+    title: "Message from Nursing Director",
+    name: "Ms. Almas Chapsi",
+    designation: "PhD Scholar, MSN, BSN, RM, RN",
+    image: "/images/nursing-director.jepg", // Make sure image ka naam yehi ho folder mein
+    message: `I warmly welcome all the students to the most leading school of nursing, Advanced Health Sciences Institute of Nursing, Karachi.
+    
+    Advanced Health Sciences Institute of Nursing Karachi was established in 2015-16. Throughout the period, it proved its standard services in the field of nursing with many achievements, such as topping in Diploma and Sterilization programs. It has launched Generic BSN & Post RN BSN programs for future nurses affiliated with International University (Dow University of Health Sciences).
+    
+    The Institute offers students the opportunity to study and learn in a supportive environment that recognizes the special needs and commitments of the adult learner. In keeping pace with rapid advancements in nursing education, to ensure integration of technology-enhanced learning in its pedagogy and to improve acquisition of present and critical clinical skills, the Institute is constructing a state-of-the-art Centre for Innovation in Nursing Education.
+    
+    We strongly believe that nursing students are responsible and accountable for quality nursing practice; thus, they need to be appropriately trained, oriented, and directly supervised. Our highly qualified and motivated professionals provide the skills and knowledge needed to meet the challenges of today.`
+  },
 ],
     
 
