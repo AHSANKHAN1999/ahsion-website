@@ -224,7 +224,7 @@ export const siteData = {
 
   {
     id: 2,
-    title: "Message from Director & Managing Director",
+    title: "Message from Managing Director",
     name: "Muneem Khan Marwat",
     designation: "MBA (HHCM), B.Sc.N, Dip. Card, RN",
     image: "/images/managing-director.jpg", // Make sure image ka naam yehi ho folder mein
@@ -239,7 +239,7 @@ export const siteData = {
     title: "Message from Nursing Director",
     name: "Ms. Almas Chapsi",
     designation: "PhD Scholar, MSN, BSN, RM, RN",
-    image: "/images/nursing-director.jepg", // Make sure image ka naam yehi ho folder mein
+    image: "/images/nursing-director.jpg", // Make sure image ka naam yehi ho folder mein
     message: `I warmly welcome all the students to the most leading school of nursing, Advanced Health Sciences Institute of Nursing, Karachi.
     
     Advanced Health Sciences Institute of Nursing Karachi was established in 2015-16. Throughout the period, it proved its standard services in the field of nursing with many achievements, such as topping in Diploma and Sterilization programs. It has launched Generic BSN & Post RN BSN programs for future nurses affiliated with International University (Dow University of Health Sciences).
