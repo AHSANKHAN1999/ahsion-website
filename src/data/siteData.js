@@ -220,37 +220,35 @@ export const siteData = {
       ],
     },
 
-    messages: {
-      sections: [
-        {
-          type: "message",
-          title: "Message from Nursing Director",
-          name: "Almas Chapsi",
-          designation: "Nursing Director, AHSION",
-          qualification: "MSN/PhD Scholar",
-          image: "/images/director/almas.jpeg",
-          text: "I welcome you to AHSION. Education is the foundation for progress, and at our institute, we aim to provide exceptional training and character-building opportunities. We are committed to producing skilled, ethical, and compassionate nursing professionals.",
-        },
-        {
-          type: "message",
-          title: "Message from Managing Director",
-          name: "Muneem Marwat",
-          designation: "Managing Director, AHSION",
-          qualification: "Post RN/MBA HHCM",
-          image: "/images/director/muneem.jpg",
-          text: "AHSION continues to strive for excellence in nursing education, blending theory with clinical experience. Our goal is to develop competent nurses who can contribute meaningfully to society and the healthcare sector.",
-        },
-        {
-          type: "message",
-          title: "Message from QEC Director",
-          name: "Uroosa Naseem",
-          designation: "QEC Director, AHSION",
-          qualification: "MBA HRM",
-          image: "/images/director/uroosa.jpeg",
-          text: "Our Quality Enhancement Cell ensures continuous improvement in academic and clinical systems. We emphasize accountability, excellence, and student-centered learning at all levels.",
-        },
-      ],
-    },
+   leadership: [
+  {
+    id: 1,
+    title: "Message from Nursing Director",
+    name: "Ms. Almas Chapsi",
+    designation: "PhD Scholar, MSN, BSN, RM, RN",
+    image: "/images/nursing-director.jpg", // Make sure image ka naam yehi ho folder mein
+    message: `I warmly welcome all the students to the most leading school of nursing, Advanced Health Sciences Institute of Nursing, Karachi.
+    
+    Advanced Health Sciences Institute of Nursing Karachi was established in 2015-16. Throughout the period, it proved its standard services in the field of nursing with many achievements, such as topping in Diploma and Sterilization programs. It has launched Generic BSN & Post RN BSN programs for future nurses affiliated with International University (Dow University of Health Sciences).
+    
+    The Institute offers students the opportunity to study and learn in a supportive environment that recognizes the special needs and commitments of the adult learner. In keeping pace with rapid advancements in nursing education, to ensure integration of technology-enhanced learning in its pedagogy and to improve acquisition of present and critical clinical skills, the Institute is constructing a state-of-the-art Centre for Innovation in Nursing Education.
+    
+    We strongly believe that nursing students are responsible and accountable for quality nursing practice; thus, they need to be appropriately trained, oriented, and directly supervised. Our highly qualified and motivated professionals provide the skills and knowledge needed to meet the challenges of today.`
+  },
+  {
+    id: 2,
+    title: "Message from Director & Managing Director",
+    name: "Muneem Khan Marwat",
+    designation: "MBA (HHCM), B.Sc.N, Dip. Card, RN",
+    image: "/images/managing-director.jpg", // Make sure image ka naam yehi ho folder mein
+    message: `As the Managing Director of Advanced Health Sciences Institute of Nursing, Karachi, I am pleased to write this message for the upcoming students who are keenly interested in the field of nursing. I really appreciate and honor the choice you have made in taking admission at AHS-ION. Our institute plays a vital role in producing competent & trained nurses. We never compromise on quality. Our motto is to equip students with advanced nursing training.
+    
+    To prove the motto true, we have qualified faculty members, spacious air-conditioned classrooms equipped with the latest teaching aids, a skill lab, science lab, computer lab, and library. We expect a learning attitude and deep interest in study from your end. We leave no stone unturned in fulfilling the requirements of nurses in Pakistan. Our efforts will never cease for the betterment of the nursing profession.
+    
+    This is our commitment that no student is going to be deprived of quality education just because of financial crises. Financial assistance is awaiting deserving & outstanding students. Finally, I wish all prospective students a very bright future ahead and welcome them to AHS-ION for their educational journey.`
+  }
+],
+    
 
     labs: {
       title: "Labs",
