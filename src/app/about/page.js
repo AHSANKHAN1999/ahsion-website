@@ -15,11 +15,11 @@ export default function About() {
 
       {/* --- INTRODUCTION SECTION --- */}
       <Section className="bg-white">
-        {/* Step 1: 'items-stretch' container par lagaya */}
-        <div className="flex flex-col lg:flex-row gap-12 items-stretch">
+        {/* SOLUTION: 'grid' use kiya hai. Grid mein dono dabbe automatically barabar height ke hote hain. */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           
           {/* LEFT: TEXT SIDE */}
-          <div className="flex-1 space-y-6 py-4">
+          <div className="flex flex-col justify-center space-y-6">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
               {about.introduction.title}
             </h2>
@@ -29,13 +29,13 @@ export default function About() {
           </div>
 
           {/* RIGHT: IMAGE SIDE */}
-          {/* Step 2: 'lg:min-h-full' add kiya taake ye box text ke barabar lamba ho jaye */}
-          <div className="relative w-full lg:w-1/2 min-h-[400px] lg:min-h-full rounded-xl overflow-hidden shadow-lg">
+          {/* 'h-full' ka matlab hai: Jitna bada barabar wala text hai, utna bada main bhi hunga */}
+          <div className="relative w-full h-full min-h-[400px] rounded-xl overflow-hidden shadow-lg">
             <Image 
               src={about.introduction.image} 
               alt="AHSION Building"
               fill
-              className="object-cover" // Step 3: object-cover image ko stretch karke fit karega
+              className="object-cover" // Image stretch ho kar crop hogi taake fit aa jaye
             />
           </div>
 
