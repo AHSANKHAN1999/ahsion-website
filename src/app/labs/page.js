@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image"; // Next.js Image component import kiya
+import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import Section from "@/components/Section";
 import { CheckCircle } from "lucide-react";
@@ -15,10 +15,8 @@ const scrollStyle = `
   .animate-gallery {
     display: flex;
     width: max-content;
-    /* 30s speed hai. Agar tez karni ho to 20s karein, slow karni ho to 40s */
     animation: scroll 30s linear infinite; 
   }
-  /* Mouse upar le jane par gallery ruk jaye */
   .animate-gallery:hover {
     animation-play-state: paused;
   }
@@ -29,11 +27,8 @@ export default function Labs() {
   const { hero, intro, labs: labsList, gallery_section, cta } = labs;
 
   // --- GALLERY IMAGES LOGIC ---
-  // Yahan aap apni nayi images add karein comma laga kar
   const allGalleryImages = [
-    ...gallery_section.images, // Ye wo hain jo data file mein hain
-    
-    // Nayi images yahan niche add karein:
+    ...gallery_section.images,
      "/images/labs/gallery1.jpeg",
      "/images/labs/gallery2.jpeg",
      "/images/labs/gallery3.jpeg",
@@ -54,20 +49,17 @@ export default function Labs() {
      "/images/labs/gallery18.jpeg",
      "/images/labs/gallery19.jpeg",
      "/images/labs/gallery20.jpeg",
-  ];
 
-  // Images ko double kar rahe hain taake loop kabhi khatam na ho
+  ];
   const loopImages = [...allGalleryImages, ...allGalleryImages];
 
   return (
     <div>
-      {/* CSS Inject */}
       <style>{scrollStyle}</style>
 
-      {/* Hero Section */}
+      {/* ================= HERO SECTION ================= */}
       <div className="relative bg-blue-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-black/40 z-0"></div>
-        {/* Pattern overlay */}
         <div 
             className="absolute inset-0 opacity-10 z-0" 
             style={{
@@ -89,7 +81,7 @@ export default function Labs() {
         </div>
       </div>
 
-      {/* Intro Section */}
+      {/* ================= INTRO SECTION ================= */}
       <Section className="text-center">
         <h2 className="text-3xl font-bold text-gray-900 mb-6">{intro.title}</h2>
         <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
@@ -97,8 +89,36 @@ export default function Labs() {
         </p>
       </Section>
 
-      {/* Labs List */}
-      <div className="bg-gray-50">
+      {/* ================= AUTO SCROLLING GALLERY (MOVED HERE) ================= */}
+      <div className="py-10 bg-white overflow-hidden border-b border-gray-100 mb-10">
+         <div className="text-center mb-8 px-4">
+            <h2 className="text-3xl font-bold text-blue-900 mb-2">{gallery_section.title}</h2>
+            <p className="text-gray-500">{gallery_section.subtitle}</p>
+         </div>
+
+         {/* Scroll Container */}
+         <div className="w-full py-6 bg-blue-50/50">
+            <div className="animate-gallery gap-6 px-6">
+               {loopImages.map((src, index) => (
+                  <div 
+                     key={index} 
+                     className="relative w-[300px] h-[220px] flex-shrink-0 rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 cursor-pointer"
+                  >
+                     <Image 
+                       src={src} 
+                       alt={`Gallery Image ${index}`} 
+                       fill 
+                       className="object-cover hover:scale-110 transition-transform duration-700"
+                     />
+                  </div>
+               ))}
+            </div>
+         </div>
+      </div>
+      {/* ================= GALLERY END ================= */}
+
+      {/* ================= LABS LIST ================= */}
+      <div className="bg-gray-50 pt-10 pb-20">
         <Section>
           <div className="space-y-24">
             {labsList.map((lab, idx) => (
@@ -140,7 +160,6 @@ export default function Labs() {
                         Image Not Found
                       </div>
                     )}
-                    
                     <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/10 transition-colors duration-300"></div>
                   </div>
                 </div>
@@ -150,36 +169,7 @@ export default function Labs() {
         </Section>
       </div>
 
-      {/* ================= AUTO SCROLLING GALLERY (UPDATED) ================= */}
-      <div className="py-20 bg-white overflow-hidden border-t border-gray-100">
-         <div className="text-center mb-10 px-4">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">{gallery_section.title}</h2>
-            <p className="text-gray-600">{gallery_section.subtitle}</p>
-         </div>
-
-         {/* Scroll Container */}
-         <div className="w-full py-8 bg-blue-50/50">
-            {/* Ye div animate karega */}
-            <div className="animate-gallery gap-6 px-6">
-               {loopImages.map((src, index) => (
-                  <div 
-                     key={index} 
-                     className="relative w-[300px] h-[220px] flex-shrink-0 rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 cursor-pointer"
-                  >
-                     <Image 
-                       src={src} 
-                       alt={`Gallery Image ${index}`} 
-                       fill 
-                       className="object-cover hover:scale-110 transition-transform duration-700"
-                     />
-                  </div>
-               ))}
-            </div>
-         </div>
-      </div>
-      {/* ================= GALLERY END ================= */}
-
-      {/* CTA Section */}
+      {/* ================= CTA SECTION ================= */}
       <div className="bg-blue-900 text-white py-20">
         <div className="max-w-4xl mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6">{cta.title}</h2>
