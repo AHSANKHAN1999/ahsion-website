@@ -4,13 +4,12 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
-import Section from "@/components/Section";
 
-// Slider Images
+// Images ka array (Make sure ye images public/images folder mein hon)
 const heroImages = [
-  "/images/hero/hero1.jpg",
-  "/images/hero/hero2.jpg",
-  "/images/hero/hero3.jpg",
+  "/images/hero1.jpg",
+  "/images/hero2.jpg",
+  "/images/hero3.jpg",
 ];
 
 export default function Home() {
@@ -22,7 +21,7 @@ export default function Home() {
   const about = sections.find((s) => s.type === "about_short");
   const programs = sections.find((s) => s.type === "program_highlights");
 
-  // Slider Logic (Automatic)
+  // Slider Logic
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % heroImages.length);
@@ -31,11 +30,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      {/* Hero Section (Design same, bas Background Slider hai) */}
+    <div className="bg-white">
+      
+      {/* ================= HERO SECTION (SLIDER) ================= */}
       <div className="relative text-white h-[600px] flex items-center justify-center overflow-hidden bg-gray-900">
         
-        {/* --- Background Slider Start --- */}
+        {/* Background Images Loop */}
         {heroImages.map((src, index) => (
           <div
             key={index}
@@ -50,12 +50,12 @@ export default function Home() {
               className="object-cover"
               priority={index === 0}
             />
-            <div className="absolute inset-0 bg-blue-900/85 mix-blend-multiply"></div>
+            {/* Blue Overlay (Jesa original site mein tha) */}
+            <div className="absolute inset-0 bg-blue-900/80 mix-blend-multiply"></div>
           </div>
         ))}
-        {/* --- Background Slider End --- */}
 
-        {/* Content (Waisa hi jaisa pehle tha) */}
+        {/* Hero Content */}
         <div className="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6 drop-shadow-lg">
             {hero.title}
@@ -72,24 +72,28 @@ export default function Home() {
         </div>
       </div>
 
-      {/* About Short Section (Original) */}
-      <Section className="text-center py-16">
-        <h2 className="text-3xl font-bold text-gray-900 mb-6">{about.title}</h2>
-        <p className="text-lg text-gray-600 max-w-4xl mx-auto mb-8 leading-relaxed">
-          {about.text}
-        </p>
-        <Link
-          href={about.button.link}
-          className="text-blue-600 font-semibold hover:text-blue-800 flex items-center justify-center gap-1 group"
-        >
-          {about.button.text}
-          <span className="group-hover:translate-x-1 transition-transform">→</span>
-        </Link>
-      </Section>
 
-      {/* Program Highlights (Original) */}
-      <div className="bg-gray-50 py-16">
-        <Section>
+      {/* ================= ABOUT SECTION ================= */}
+      <section className="py-16 px-4 text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-bold text-gray-900 mb-6">{about.title}</h2>
+          <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+            {about.text}
+          </p>
+          <Link
+            href={about.button.link}
+            className="text-blue-600 font-semibold hover:text-blue-800 flex items-center justify-center gap-1 group"
+          >
+            {about.button.text}
+            <span className="group-hover:translate-x-1 transition-transform">→</span>
+          </Link>
+        </div>
+      </section>
+
+
+      {/* ================= PROGRAMS SECTION ================= */}
+      <div className="bg-gray-50 py-16 px-4">
+        <section className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             {programs.title}
           </h2>
@@ -100,8 +104,8 @@ export default function Home() {
                 href={program.link}
                 className="bg-white rounded-xl shadow-md p-8 hover:shadow-xl transition-shadow border border-gray-100 flex flex-col items-center text-center group"
               >
-                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors text-blue-600">
-                  <span className="text-2xl font-bold">{idx + 1}</span>
+                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-blue-600 group-hover:text-white transition-colors text-blue-600 font-bold text-xl">
+                  {idx + 1}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-2">
                   {program.name}
@@ -112,8 +116,9 @@ export default function Home() {
               </Link>
             ))}
           </div>
-        </Section>
+        </section>
       </div>
+
     </div>
   );
 }
