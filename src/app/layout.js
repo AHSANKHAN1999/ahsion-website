@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { siteData } from "@/data/siteData";
 
-// --- FONTS CONFIGURATION ---
+// --- 1. Fonts Setup ---
 const inter = Inter({ 
   subsets: ["latin"], 
   variable: '--font-inter' 
@@ -29,16 +29,19 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      {/* Yahan fonts variables add kiye hain taake puri website par chal sakein */}
+      {/* Yahan 'className' mein humne teeno fonts ke variables add kiye hain.
+         Ab puri website par ye fonts available honge.
+      */}
       <body className={`${inter.variable} ${playfair.variable} ${greatVibes.variable} flex flex-col min-h-screen overflow-x-hidden font-sans`}>
         
-        {/* Agar aap chahte hain ke Homepage par double Navbar na aye, 
-            to aap is <Navbar /> ko hata sakte hain, lekin baqi pages ke liye ye zaroori hai. 
-            Filhal isay aise hi rehne dein. */}
         <Navbar />
         
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">
+          {children}
+        </main>
+        
         <Footer />
+      
       </body>
     </html>
   );
