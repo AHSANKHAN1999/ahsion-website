@@ -9,8 +9,8 @@ export const siteData = {
   navigation: [
     { label: "Home", link: "/" },
     { label: "About", link: "/about", sub_navigation: [
-        { label: "Our Vision & Mission", link: "/about" }, // Agar koi aur page hai
-        { label: "Messages of Director", link: "/about/messages" }, // Aapka Messages Page
+        { label: "Our Vision & Mission", link: "/about" }, 
+        { label: "Messages of Director", link: "/about/messages" }, 
         { label: "Affiliations", link: "/affiliations" },
         { label: "Contact", link: "/contact" } 
       ]},
@@ -66,7 +66,7 @@ export const siteData = {
         {
           type: "content",
           title: "Introduction",
-text: `Advanced Health Sciences Institute of Nursing Karachi was established in 2015 in order to start General Nursing Diploma Program (03 years) and Diploma in Intensive Care Unit Nursing (Post Basic Specialization) (01 Year) to cover a huge area of Saeedabad Baldia Town, Karachi rendering our services for the betterment of nurses as there is a shortage of highly advance and profession nurses in Sindh province as well as in Pakistan. We as Advanced Health Sciences Institute of Nursing Karachi ION, started B.Sc. Nursing (Post-RN) (02 Years) and Post Basic Specialization Emergency & Disaster Management (01 Year) in 2018.
+          text: `Advanced Health Sciences Institute of Nursing Karachi was established in 2015 in order to start General Nursing Diploma Program (03 years) and Diploma in Intensive Care Unit Nursing (Post Basic Specialization) (01 Year) to cover a huge area of Saeedabad Baldia Town, Karachi rendering our services for the betterment of nurses as there is a shortage of highly advance and profession nurses in Sindh province as well as in Pakistan. We as Advanced Health Sciences Institute of Nursing Karachi ION, started B.Sc. Nursing (Post-RN) (02 Years) and Post Basic Specialization Emergency & Disaster Management (01 Year) in 2018.
 
     We have been providing services to our locality in term of rendering the Diploma in Nursing, B.Sc. Nursing (Post-RN) Post Basic Specialization ICU Nursing and Emergency & Disaster Management. Furthermore, as we followed the policies of PNC and never compromised on quality; hence, we have established a good name in the locality as well in the city. As the Government of Pakistan has declared the year of 2019 is the year of nursing profession, so we have started Generic BSN Degree program, CNA, CMW programs in this years. The said programs have been introduced at AHS-ION to fulfill the requirement and the need of area.
 
@@ -74,7 +74,7 @@ text: `Advanced Health Sciences Institute of Nursing Karachi was established in 
     • To provide advanced nursing education, introducing the latest technology of nursing profession.
     • To make the education easy for the interested students without compromising the quality of care.
     • To facilitate and provide students with all kind of facilities.`,          
-    image: "/images/about-main.jpg",
+          image: "/images/about-main.jpg",
         },
         {
           type: "mission_vision",
@@ -112,12 +112,12 @@ text: `Advanced Health Sciences Institute of Nursing Karachi was established in 
               description: "Enhance your qualifications and advance your nursing career.",
             },
             {
-                  id: "cmw", // ID CMW rakhiye
-                  name: "Community Midwifery (CMW)",
-                  duration: "2 Years",
-                  eligibility: "Matric (either Art or Science) with 40% marks  (Age Limit) 14-40 years (only Females)",
-                  description: "A two-year diploma focused on maternal and child healthcare in community settings.",
-                },
+                  id: "cmw", // ID CMW rakhiye
+                  name: "Community Midwifery (CMW)",
+                  duration: "2 Years",
+                  eligibility: "Matric (either Art or Science) with 40% marks  (Age Limit) 14-40 years (only Females)",
+                  description: "A two-year diploma focused on maternal and child healthcare in community settings.",
+                },
             {
               id: "cna",
               name: "Certified Nursing Assistant (CNA)",
@@ -222,7 +222,7 @@ text: `Advanced Health Sciences Institute of Nursing Karachi was established in 
                 
               ],
             },
-         
+          
           ],
         },
       ],
@@ -235,7 +235,7 @@ text: `Advanced Health Sciences Institute of Nursing Karachi was established in 
     title: "Message from Managing Director",
     name: "Muneem Khan Marwat",
     designation: "MBA (HHCM), B.Sc.N, Dip. Card, RN",
-    image: "/images/managing-director.jpg", // Make sure image ka naam yehi ho folder mein
+    image: "/images/managing-director.jpg", 
     message: `As the Managing Director of Advanced Health Sciences Institute of Nursing, Karachi, I am pleased to write this message for the upcoming students who are keenly interested in the field of nursing. I really appreciate and honor the choice you have made in taking admission at AHS-ION. Our institute plays a vital role in producing competent & trained nurses. We never compromise on quality. Our motto is to equip students with advanced nursing training.
     
     To prove the motto true, we have qualified faculty members, spacious air-conditioned classrooms equipped with the latest teaching aids, a skill lab, science lab, computer lab, and library. We expect a learning attitude and deep interest in study from your end. We leave no stone unturned in fulfilling the requirements of nurses in Pakistan. Our efforts will never cease for the betterment of the nursing profession.
@@ -247,7 +247,7 @@ text: `Advanced Health Sciences Institute of Nursing Karachi was established in 
     title: "Message from Nursing Director",
     name: "Ms. Almas Chapsi",
     designation: "PhD Scholar, MSN, BSN, RM, RN",
-    image: "/images/nursing-director.jpg", // Make sure image ka naam yehi ho folder mein
+    image: "/images/nursing-director.jpg", 
     message: `I warmly welcome all the students to the most leading school of nursing, Advanced Health Sciences Institute of Nursing, Karachi.
     
     Advanced Health Sciences Institute of Nursing Karachi was established in 2015-16. Throughout the period, it proved its standard services in the field of nursing with many achievements, such as topping in Diploma and Sterilization programs. It has launched Generic BSN & Post RN BSN programs for future nurses affiliated with International University (Dow University of Health Sciences).
