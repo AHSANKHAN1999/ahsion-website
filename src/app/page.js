@@ -32,7 +32,7 @@ export default function Home() {
   return (
     <div className="bg-white text-black">
       
-      {/* ================= HERO SECTION (CLEAN LOOK) ================= */}
+      {/* ================= HERO SECTION (CLEAN ACADEMIC LOOK) ================= */}
       <div className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
         
         {/* Slider Images */}
@@ -50,25 +50,25 @@ export default function Home() {
               className="object-cover"
               priority={index === 0}
             />
-            {/* Blue Overlay for Professional Look */}
+            {/* Blue Overlay (Professional Look) */}
             <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
           </div>
         ))}
 
-        {/* Text Content */}
+        {/* Text Content - No Fancy Fonts */}
         <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-10">
           
-          {/* Main Heading - Simple Bold */}
+          {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight mb-6 drop-shadow-lg">
             {hero.title}
           </h1>
 
-          {/* Subtitle - Clean Text */}
+          {/* Subtitle */}
           <p className="text-xl md:text-3xl text-blue-100 font-medium mb-10 max-w-3xl mx-auto">
             {hero.subtitle}
           </p>
 
-          {/* Button - Standard Academic Style */}
+          {/* Button */}
           <Link 
             href={hero.button.link} 
             className="inline-block bg-white text-blue-900 px-8 py-3 text-lg font-bold rounded-md hover:bg-blue-50 transition duration-300 shadow-md"

@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { siteData } from "@/data/siteData";
 
-// Sirf ek simple Academic Font
+// Sirf simple Inter font (Academic Look)
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
