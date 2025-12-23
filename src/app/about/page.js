@@ -3,25 +3,33 @@
 import Image from "next/image";
 
 export default function About() {
+  // Ye wo EXACT color hai jo aapki site ka theme hai (#1A2A6C)
+  const brandColor = "#1A2A6C";
+
   return (
     <div className="bg-white text-gray-900 font-sans">
       
-      {/* ================= HEADER SECTION (Original Blue) ================= */}
-      <div className="bg-blue-900 text-white py-20 px-4 text-center">
-        {/* Simple Bold Font (No Serif) */}
+      {/* ================= HEADER (Using Brand Color) ================= */}
+      <div 
+        className="text-white py-20 px-4 text-center"
+        style={{ backgroundColor: brandColor }} // Yahan Exact Color lagaya hai
+      >
         <h1 className="text-4xl md:text-5xl font-bold mb-4">About AHSION</h1>
         <p className="text-xl text-blue-100 max-w-2xl mx-auto tracking-wide">
           A Premier Institution for Nursing Education
         </p>
       </div>
 
-      {/* ================= INTRODUCTION SECTION ================= */}
+      {/* ================= INTRODUCTION ================= */}
       <section className="bg-white py-16 px-4">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           
-          {/* LEFT: Text Content */}
+          {/* Text Side */}
           <div className="flex flex-col justify-center space-y-6">
-            <h2 className="text-3xl md:text-4xl font-bold text-blue-900 mb-2">
+            <h2 
+              className="text-3xl md:text-4xl font-bold mb-2"
+              style={{ color: brandColor }} // Heading ka color bhi same kiya
+            >
               Introduction
             </h2>
             <div className="text-gray-700 text-base md:text-lg leading-relaxed text-justify space-y-4">
@@ -37,7 +45,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* RIGHT: Building Image */}
+          {/* Image Side */}
           <div className="relative h-[400px] md:h-[500px] w-full rounded-xl overflow-hidden shadow-2xl border-4 border-gray-100">
             <Image
                 src="/images/about-main.jpg" 
@@ -51,14 +59,17 @@ export default function About() {
         </div>
       </section>
 
-      {/* ================= MISSION & VISION (Original Blue Background) ================= */}
-      <section className="bg-blue-900 text-white py-20 px-4">
+      {/* ================= MISSION & VISION (Using Brand Color) ================= */}
+      <section 
+        className="text-white py-20 px-4"
+        style={{ backgroundColor: brandColor }} // Yahan bhi Exact Color lagaya
+      >
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           
           {/* Mission Card */}
           <div className="bg-white/10 p-8 md:p-10 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg">
             <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3 border-b border-white/20 pb-4">
-              🚀 Our Mission
+              Our Mission
             </h3>
             <p className="text-blue-50 leading-relaxed text-justify text-sm md:text-base">
               The institute of Nursing is committed to perfection in nursing education, clinical practice, nursing care, and community service. The institute prepares nursing students to be effective clinicians & leaders who will work to improve the health and health care of Pakistan people community and beyond.
@@ -70,7 +81,7 @@ export default function About() {
           {/* Vision Card */}
           <div className="bg-white/10 p-8 md:p-10 rounded-xl backdrop-blur-sm border border-white/10 shadow-lg">
             <h3 className="text-2xl font-bold mb-6 text-white flex items-center gap-3 border-b border-white/20 pb-4">
-              👁️ Our Vision
+            Our Vision
             </h3>
             <p className="text-blue-50 leading-relaxed text-justify text-sm md:text-base">
               As a institute, our vision is to produce competent nurses and health care providers whose care, discoveries, authentic and qualified voices may proved them the vital organ of a living society.
