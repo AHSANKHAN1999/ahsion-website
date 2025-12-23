@@ -104,11 +104,11 @@ export default function Home() {
 
           {/* Scrolling Text: Blue Text on White Background */}
           <div className="animate-scroll pl-4 md:pl-44 font-bold text-lg flex items-center">
-            <span className="mr-8">📢 New Admissions Open: Generic BS Nursing (Batch 7th) Session 2025-26</span>
+            <span className="mr-8">New Admissions Open: Generic BS Nursing (Batch 7th) Session 2025-26</span>
             <span className="mr-8">•</span>
             <span className="mr-8">Apply Online Today!</span>
             <span className="mr-8">•</span>
-            <span>Limited Seats Available 📢</span>
+            <span>Limited Seats Available</span>
           </div>
 
         </div>
