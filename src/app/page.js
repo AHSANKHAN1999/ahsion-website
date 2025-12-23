@@ -5,6 +5,24 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
 
+// --- CUSTOM CSS FOR SCROLLING TEXT ---
+const tickerAnimation = `
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-scroll {
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+  }
+  @media (max-width: 768px) {
+    .animate-scroll {
+      animation: scroll 15s linear infinite;
+    }
+  }
+`;
+
 const heroImages = [
   "/images/hero1.jpg",
   "/images/hero2.jpg",
@@ -31,8 +49,9 @@ export default function Home() {
 
   return (
     <div className="bg-white text-black">
-      
-      {/* ================= HERO SECTION (CLEAN ACADEMIC LOOK) ================= */}
+      <style>{tickerAnimation}</style>
+
+      {/* ================= HERO SECTION ================= */}
       <div className="relative w-full h-[85vh] flex items-center justify-center overflow-hidden bg-gray-900">
         
         {/* Slider Images */}
@@ -50,35 +69,51 @@ export default function Home() {
               className="object-cover"
               priority={index === 0}
             />
-            {/* Blue Overlay (Professional Look) */}
+            {/* Blue Overlay */}
             <div className="absolute inset-0 bg-blue-900/70 mix-blend-multiply"></div>
           </div>
         ))}
 
-        {/* Text Content - No Fancy Fonts */}
+        {/* Text Content */}
         <div className="relative z-20 text-center px-4 max-w-5xl mx-auto mt-10">
-          
-          {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight mb-6 drop-shadow-lg">
             {hero.title}
           </h1>
-
-          {/* Subtitle */}
           <p className="text-xl md:text-3xl text-blue-100 font-medium mb-10 max-w-3xl mx-auto">
             {hero.subtitle}
           </p>
-
-          {/* Button */}
           <Link 
             href={hero.button.link} 
             className="inline-block bg-white text-blue-900 px-8 py-3 text-lg font-bold rounded-md hover:bg-blue-50 transition duration-300 shadow-md"
           >
             {hero.button.text}
           </Link>
-
         </div>
       </div>
       {/* ================= HERO END ================= */}
+
+
+      {/* ================= NEWS TICKER (White & Blue Theme) ================= */}
+      <div className="bg-white text-blue-900 py-4 overflow-hidden border-b border-gray-200 relative shadow-sm">
+        <div className="max-w-7xl mx-auto px-4 overflow-hidden relative flex items-center h-full">
+          
+          {/* Label: Blue Background, White Text (Professional Look) */}
+          <div className="absolute left-0 top-0 bottom-0 bg-blue-900 text-white z-10 px-6 flex items-center font-bold uppercase tracking-wider text-sm shadow-md hidden md:flex">
+            Latest News
+          </div>
+
+          {/* Scrolling Text: Blue Text on White Background */}
+          <div className="animate-scroll pl-4 md:pl-44 font-bold text-lg flex items-center">
+            <span className="mr-8">📢 New Admissions Open: Generic BS Nursing (Batch 7th) Session 2025-26</span>
+            <span className="mr-8">•</span>
+            <span className="mr-8">Apply Online Today!</span>
+            <span className="mr-8">•</span>
+            <span>Limited Seats Available 📢</span>
+          </div>
+
+        </div>
+      </div>
+      {/* ================= TICKER END ================= */}
 
 
       {/* --- ABOUT SECTION --- */}
