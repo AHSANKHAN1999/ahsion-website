@@ -11,14 +11,14 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
 
   return (
-    <nav className="bg-white shadow-md sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* --- 1. LEFT SIDE: LOGO --- */}
+          {/* --- 1. LEFT SIDE: LOGO & NAME --- */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="relative w-12 h-12">
+            <Link href="/" className="flex items-center gap-3">
+              <div className="relative w-12 h-12 flex-shrink-0">
                 <Image
                   src="/images/logo.jpg"
                   alt="AHSION Logo"
@@ -27,16 +27,24 @@ export default function Navbar() {
                 />
               </div>
               
-              {/* Text sirf Laptop (lg) ya us se bare par dikhega. Mobile/Tablet par HIDDEN. */}
-              <span className="hidden lg:block font-semibold text-lg text-black leading-tight">
-                Advanced Health Sciences <br /> 
-                Institute of Nursing
-              </span>
+              {/* --- NAME LOGIC CHANGED HERE --- */}
+              <div className="flex flex-col">
+                {/* Desktop Name (Full) - Sirf Laptop par dikhega */}
+                <span className="hidden lg:block font-bold text-lg text-blue-900 leading-tight">
+                  Advanced Health Sciences <br /> 
+                  Institute of Nursing
+                </span>
+
+                {/* Mobile Name (Short) - Sirf Mobile par dikhega */}
+                <span className="block lg:hidden font-bold text-sm text-blue-900 leading-tight max-w-[200px]">
+                  AHS Institute of Nursing
+                </span>
+              </div>
+
             </Link>
           </div>
 
           {/* --- 2. MIDDLE: DESKTOP MENU --- */}
-          {/* CRITICAL FIX: 'hidden lg:flex'. Matlab Mobile/Tablet par GAYAB rahega. */}
           <div className="hidden lg:flex items-center h-full gap-4">
             {siteData.navigation.map((item) => (
               <div 
@@ -47,7 +55,7 @@ export default function Navbar() {
               >
                 <Link
                   href={item.link}
-                  className="text-gray-700 hover:text-primary px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                  className="text-gray-700 hover:text-blue-900 px-3 py-2 rounded-md text-sm font-medium transition-colors"
                 >
                   {item.label}
                 </Link>
@@ -74,11 +82,10 @@ export default function Navbar() {
           </div>
 
           {/* --- 3. RIGHT SIDE: MOBILE MENU BUTTON --- */}
-          {/* CRITICAL FIX: 'lg:hidden'. Matlab jab tak Laptop na ho, Button dikhao. */}
           <div className="flex items-center lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none p-2"
+              className="text-blue-900 hover:text-blue-700 focus:outline-none p-2"
             >
               {isOpen ? <X size={30} /> : <Menu size={30} />}
             </button>
@@ -86,16 +93,16 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* --- 4. MOBILE MENU LIST (Opens when button clicked) --- */}
+      {/* --- 4. MOBILE MENU LIST --- */}
       {isOpen && (
         <div className="lg:hidden bg-white shadow-lg border-t absolute top-20 left-0 w-full z-40">
-          <div className="px-4 pt-2 pb-4 space-y-1 bg-white">
+          <div className="px-4 pt-2 pb-6 space-y-1 bg-white">
             {siteData.navigation.map((item) => (
               <div key={item.label}> 
                 {item.sub_navigation ? (
                   <button
                     onClick={() => setOpenDropdown(openDropdown === item.label ? null : item.label)}
-                    className="w-full text-left text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-3 rounded-md text-base font-medium flex justify-between items-center"
+                    className="w-full text-left text-gray-700 hover:text-blue-900 hover:bg-gray-50 px-3 py-3 rounded-md text-base font-medium flex justify-between items-center"
                   >
                     {item.label}
                     <span>{openDropdown === item.label ? '▲' : '▼'}</span> 
@@ -104,7 +111,7 @@ export default function Navbar() {
                   <Link
                     href={item.link}
                     onClick={() => setIsOpen(false)}
-                    className="block text-gray-700 hover:text-primary hover:bg-gray-50 px-3 py-3 rounded-md text-base font-medium"
+                    className="block text-gray-700 hover:text-blue-900 hover:bg-gray-50 px-3 py-3 rounded-md text-base font-medium"
                   >
                     {item.label}
                   </Link>
@@ -118,7 +125,7 @@ export default function Navbar() {
                         key={subItem.label}
                         href={subItem.link}
                         onClick={() => setIsOpen(false)}
-                        className="block py-2 text-sm text-gray-600 hover:text-primary"
+                        className="block py-2 text-sm text-gray-600 hover:text-blue-900"
                       >
                         {subItem.label}
                       </Link>
@@ -132,7 +139,7 @@ export default function Navbar() {
                 <Link
                 href="/admissions"
                 onClick={() => setIsOpen(false)}
-                className="block bg-primary text-white text-center px-3 py-3 rounded-md text-base font-medium hover:bg-blue-800 shadow-sm"
+                className="block bg-blue-900 text-white text-center px-3 py-3 rounded-md text-base font-bold hover:bg-blue-800 shadow-sm"
                 >
                 Apply Now
                 </Link>
