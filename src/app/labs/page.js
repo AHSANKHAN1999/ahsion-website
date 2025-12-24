@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { siteData } from "@/data/page";
+import { siteData } from "@/data/siteData";
 import Section from "@/components/Section";
 import { CheckCircle, Microscope, Beaker } from "lucide-react";
 

@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { siteData } from "@/data/page";
+import { siteData } from "@/data/siteData";
 import Section from "@/components/Section";
 import { ArrowRight, Megaphone, Stethoscope, GraduationCap, Baby, HeartPulse, Activity as ActivityIcon, Shield as ShieldIcon, Users, Building2, Globe } from "lucide-react";
 

@@ -1,6 +1,6 @@
 "use client";
 
-import { siteData } from "@/data/page";
+import { siteData } from "@/data/siteData";
 import Section from "@/components/Section";
 import Image from "next/image";
 import { Quote } from "lucide-react";
