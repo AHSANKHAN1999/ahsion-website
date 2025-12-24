@@ -15,7 +15,7 @@ const scrollStyle = `
   .animate-gallery {
     display: flex;
     width: max-content;
-    animation: scroll 30s linear infinite; 
+    animation: scroll 40s linear infinite; 
   }
   .animate-gallery:hover {
     animation-play-state: paused;
@@ -27,8 +27,9 @@ export default function Labs() {
   const { hero, intro, labs: labsList, gallery_section, cta } = labs;
 
   // --- GALLERY IMAGES LOGIC ---
+  // Maine purana data nikal diya hai taake koi khali dabba na aye.
+  // Sirf aapki 20 images hain ab.
   const allGalleryImages = [
-    ...gallery_section.images,
      "/images/labs/gallery1.jpeg",
      "/images/labs/gallery2.jpeg",
      "/images/labs/gallery3.jpeg",
@@ -49,8 +50,9 @@ export default function Labs() {
      "/images/labs/gallery18.jpeg",
      "/images/labs/gallery19.jpeg",
      "/images/labs/gallery20.jpeg",
-
   ];
+
+  // Images ko loop karne ke liye double kiya
   const loopImages = [...allGalleryImages, ...allGalleryImages];
 
   return (
@@ -89,7 +91,7 @@ export default function Labs() {
         </p>
       </Section>
 
-      {/* ================= AUTO SCROLLING GALLERY (MOVED HERE) ================= */}
+      {/* ================= AUTO SCROLLING GALLERY (Here) ================= */}
       <div className="py-10 bg-white overflow-hidden border-b border-gray-100 mb-10">
          <div className="text-center mb-8 px-4">
             <h2 className="text-3xl font-bold text-blue-900 mb-2">{gallery_section.title}</h2>
@@ -102,13 +104,15 @@ export default function Labs() {
                {loopImages.map((src, index) => (
                   <div 
                      key={index} 
-                     className="relative w-[300px] h-[220px] flex-shrink-0 rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 cursor-pointer"
+                     className="relative w-[300px] h-[220px] flex-shrink-0 rounded-lg overflow-hidden shadow-md hover:shadow-2xl transition-all duration-300 border border-gray-200 cursor-pointer bg-gray-200"
                   >
                      <Image 
                        src={src} 
                        alt={`Gallery Image ${index}`} 
                        fill 
                        className="object-cover hover:scale-110 transition-transform duration-700"
+                       // Agar image load na ho to broken icon na dikhaye, balkay chup jaye
+                       onError={(e) => { e.target.style.display = 'none'; }} 
                      />
                   </div>
                ))}
