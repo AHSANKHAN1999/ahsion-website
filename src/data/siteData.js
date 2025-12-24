@@ -16,6 +16,7 @@ export const siteData = {
       ]},
     { label: "Programs", link: "/programs" },
     { label: "Labs", link: "/labs" },
+    { label: "Results", link: "/results" },
     { label: "Online Apply", link: "/admissions" },
   ],
 
