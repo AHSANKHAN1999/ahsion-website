@@ -10,43 +10,35 @@ export default function Navbar() {
   const [isAboutHovered, setIsAboutHovered] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
 
+  // Filter: 'Online Apply' ko list se nikal rahe hain taake double na ho
+  const navItems = siteData.navigation.filter(item => item.label !== "Online Apply");
+
   return (
-    // Added border-t-4 border-yellow-400 to match Footer theme
     <nav className="bg-white shadow-md sticky top-0 z-50 font-sans border-t-4 border-yellow-400">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* --- 1. LEFT SIDE: LOGO & NAME --- */}
+          {/* --- LOGO --- */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 flex-shrink-0">
-                <Image
-                  src="/images/logo.jpg"
-                  alt="AHSION Logo"
-                  fill
-                  className="object-contain"
-                />
+                <Image src="/images/logo.jpg" alt="AHSION Logo" fill className="object-contain" />
               </div>
-              
               <div className="flex flex-col">
-                {/* Desktop Name */}
                 <span className="hidden lg:block font-bold text-lg text-blue-900 leading-tight uppercase tracking-tight group-hover:text-blue-700 transition">
                   Advanced Health Sciences <br /> 
                   <span className="text-sm font-semibold text-gray-600 group-hover:text-yellow-600 transition">Institute of Nursing</span>
                 </span>
-
-                {/* Mobile Name */}
                 <span className="block lg:hidden font-bold text-sm text-blue-900 leading-tight max-w-[200px]">
                   AHS Institute of Nursing
                 </span>
               </div>
-
             </Link>
           </div>
 
-          {/* --- 2. MIDDLE: DESKTOP MENU --- */}
+          {/* --- DESKTOP MENU --- */}
           <div className="hidden lg:flex items-center h-full gap-6">
-            {siteData.navigation.map((item) => (
+            {navItems.map((item) => (
               <div 
                 key={item.label} 
                 className="relative h-full flex items-center" 
@@ -58,11 +50,9 @@ export default function Navbar() {
                   className="text-gray-700 hover:text-blue-900 font-bold text-sm uppercase tracking-wide transition-colors relative group py-2"
                 >
                   {item.label}
-                  {/* Hover Underline Effect */}
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
 
-                {/* Desktop Dropdown */}
                 {item.sub_navigation && isAboutHovered && (
                   <div className="absolute top-full left-0 mt-0 w-56 rounded-b-lg shadow-xl bg-white border-t-2 border-yellow-400 animate-fadeIn">
                     <div className="py-2">
@@ -82,7 +72,7 @@ export default function Navbar() {
               </div>
             ))}
             
-            {/* Apply Now Button (Professional Style) */}
+            {/* BUTTON: Ye ab akela nazar ayega (Duplicate nahi hoga) */}
             <Link
                 href="/admissions"
                 className="bg-blue-900 text-white px-6 py-2.5 rounded-md text-sm font-bold uppercase tracking-wider hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
@@ -91,23 +81,20 @@ export default function Navbar() {
             </Link>
           </div>
 
-          {/* --- 3. RIGHT SIDE: MOBILE MENU BUTTON --- */}
+          {/* --- MOBILE BUTTON --- */}
           <div className="flex items-center lg:hidden">
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-blue-900 hover:text-yellow-600 focus:outline-none p-2 transition"
-            >
+            <button onClick={() => setIsOpen(!isOpen)} className="text-blue-900 hover:text-yellow-600 focus:outline-none p-2 transition">
               {isOpen ? <X size={32} /> : <Menu size={32} />}
             </button>
           </div>
         </div>
       </div>
 
-      {/* --- 4. MOBILE MENU LIST --- */}
+      {/* --- MOBILE MENU --- */}
       {isOpen && (
         <div className="lg:hidden bg-white shadow-2xl border-t border-gray-100 absolute top-20 left-0 w-full z-40 h-screen overflow-y-auto pb-20">
           <div className="px-4 pt-4 pb-6 space-y-2 bg-white">
-            {siteData.navigation.map((item) => (
+            {navItems.map((item) => (
               <div key={item.label} className="border-b border-gray-50 last:border-0 pb-1"> 
                 {item.sub_navigation ? (
                   <button
@@ -127,7 +114,6 @@ export default function Navbar() {
                   </Link>
                 )}
 
-                {/* Mobile Dropdown Items */}
                 {item.sub_navigation && openDropdown === item.label && (
                   <div className="pl-4 pt-1 pb-2 bg-gray-50 rounded-lg mb-2">
                     {item.sub_navigation.map((subItem) => (
