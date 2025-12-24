@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { siteData } from "@/data/siteData";
+import { siteData } from "@/data/page";
 import Section from "@/components/Section";
 import { MapPin, Phone, Mail, Facebook, Send, Clock, Globe } from "lucide-react";
 

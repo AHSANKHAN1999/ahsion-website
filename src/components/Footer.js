@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { siteData } from "@/data/siteData";
+import { siteData } from "@/data/page";
 import { MapPin, Phone, Mail, Facebook, Instagram, Linkedin } from "lucide-react";
 
 export default function Footer() {

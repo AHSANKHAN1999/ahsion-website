@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { siteData } from "@/data/siteData";
+import { siteData } from "@/data/page";
 import Section from "@/components/Section";
 import { Clock, CheckCircle, GraduationCap, ArrowRight } from "lucide-react";
 
