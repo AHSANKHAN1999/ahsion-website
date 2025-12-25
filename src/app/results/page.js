@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Section from "@/components/Section";
-import { FileText, Download, ChevronRight, Calendar, Search } from "lucide-react";
+import { FileText, Download, ChevronRight, Calendar, Search, Award, AlertCircle } from "lucide-react";
 
 // --- DATA: Yahan aap naye results add karenge ---
 const resultsData = [
@@ -11,9 +11,9 @@ const resultsData = [
     title: "Session 2024 - 2028",
     status: "Current",
     semesters: [
-      { id: "sem-1", name: "1st Semester", date: "June 2024", pdf: "/results/sample.pdf" },
+      { id: "sem-1", name: "First Semester", date: "June 2024", pdf: "/results/sample.pdf" },
       // Jab naya result aye, yahan neechay line add karein:
-      // { id: "sem-2", name: "2nd Semester", date: "Dec 2024", pdf: "/results/sample.pdf" },
+      // { id: "sem-2", name: "Second Semester", date: "Dec 2024", pdf: "/results/sample.pdf" },
     ]
   },
   {
@@ -21,9 +21,9 @@ const resultsData = [
     title: "Session 2023 - 2027",
     status: "Ongoing",
     semesters: [
-      { id: "sem-1", name: "1st Semester", date: "June 2023", pdf: "/results/sample.pdf" },
-      { id: "sem-2", name: "2nd Semester", date: "Dec 2023", pdf: "/results/sample.pdf" },
-      { id: "sem-3", name: "3rd Semester", date: "June 2024", pdf: "/images/results/batch23_sem3.pdf" },
+      { id: "sem-1", name: "First Semester", date: "June 2023", pdf: "/results/sample.pdf" },
+      { id: "sem-2", name: "Second Semester", date: "Dec 2023", pdf: "/results/sample.pdf" },
+      { id: "sem-3", name: "Third Semester", date: "June 2024", pdf: "/images/results/batch23_sem3.pdf" },
     ]
   },
   {
@@ -31,111 +31,145 @@ const resultsData = [
     title: "Session 2022 - 2026",
     status: "Ongoing",
     semesters: [
-      { id: "sem-1", name: "1st Semester", date: "June 2022", pdf: "/results/sample.pdf" },
-      { id: "sem-2", name: "2nd Semester", date: "Dec 2022", pdf: "/results/sample.pdf" },
-      { id: "sem-3", name: "3rd Semester", date: "June 2023", pdf: "/results/sample.pdf" },
-      { id: "sem-4", name: "4th Semester", date: "Dec 2023", pdf: "/results/sample.pdf" },
+      { id: "sem-1", name: "First Semester", date: "June 2022", pdf: "/results/sample.pdf" },
+      { id: "sem-2", name: "Second Semester", date: "Dec 2022", pdf: "/results/sample.pdf" },
+      { id: "sem-3", name: "Third Semester", date: "June 2023", pdf: "/results/sample.pdf" },
+      { id: "sem-4", name: "Fourth Semester", date: "Dec 2023", pdf: "/results/sample.pdf" },
     ]
   },
-  // Purane batches mazeed add kar sakte hain...
 ];
 
 export default function Results() {
-  const [selectedBatch, setSelectedBatch] = useState(resultsData[0]); // Default pehla batch khulega
+  const [selectedBatch, setSelectedBatch] = useState(resultsData[0]);
 
   return (
-    <div className="bg-gray-50 min-h-screen font-sans">
+    <div className="bg-slate-50 min-h-screen font-sans text-slate-800">
       
-      {/* ================= HERO SECTION ================= */}
-      <div className="relative bg-blue-900 text-white py-20 px-4 overflow-hidden">
+      {/* ================= HERO SECTION (University Style) ================= */}
+      <div className="relative bg-[#002147] text-white py-24 px-4 overflow-hidden">
+        {/* Abstract Pattern Background */}
         <div className="absolute inset-0 opacity-10" 
-             style={{ backgroundImage: 'radial-gradient(#ffffff 1px, transparent 1px)', backgroundSize: '20px 20px' }}>
+             style={{ backgroundImage: 'radial-gradient(#d1d5db 1px, transparent 1px)', backgroundSize: '30px 30px' }}>
         </div>
+        
         <div className="relative z-10 max-w-7xl mx-auto text-center">
-          <span className="inline-block py-1 px-3 rounded-full bg-yellow-400 text-blue-900 font-bold text-xs uppercase tracking-wider mb-4 shadow-md">
-            Examination Department
-          </span>
-          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
-            Exam Results
+          <div className="inline-flex items-center gap-2 py-1 px-4 rounded-full bg-yellow-500/20 border border-yellow-500/30 text-yellow-400 font-semibold text-xs uppercase tracking-widest mb-6 backdrop-blur-sm">
+            <Award size={14} /> Examination Department
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight font-serif">
+            Results & Gazettes
           </h1>
-          <p className="text-lg text-blue-100 max-w-2xl mx-auto">
-            Select your session to view and download semester-wise result gazettes.
+          <p className="text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed">
+            Access the official semester-wise results for the B.Sc. Nursing program. 
+            Select your academic session to view details.
           </p>
         </div>
+        
+        {/* Decorative Bottom Strip */}
+        <div className="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-yellow-500 via-yellow-400 to-yellow-500"></div>
       </div>
 
       <Section className="py-16">
-        <div className="flex flex-col lg:flex-row gap-8">
+        <div className="flex flex-col lg:flex-row gap-10">
           
-          {/* --- LEFT SIDE: BATCH SELECTOR --- */}
-          <div className="w-full lg:w-1/3 space-y-4">
-            <h3 className="text-xl font-bold text-blue-900 mb-4 flex items-center gap-2">
-                <Search size={20}/> Select Session
-            </h3>
-            <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          {/* --- LEFT SIDE: OFFICIAL SIDEBAR --- */}
+          <div className="w-full lg:w-1/4 space-y-6">
+            <div className="bg-white rounded-lg shadow-md border border-slate-200 overflow-hidden sticky top-24">
+              <div className="bg-slate-100 px-6 py-4 border-b border-slate-200">
+                <h3 className="text-lg font-bold text-[#002147] flex items-center gap-2">
+                  <Search size={18} className="text-yellow-600"/> Select Session
+                </h3>
+              </div>
+              <div className="p-2">
                 {resultsData.map((batch) => (
-                    <button
-                        key={batch.id}
-                        onClick={() => setSelectedBatch(batch)}
-                        className={`w-full text-left px-6 py-4 border-b border-gray-100 last:border-0 flex justify-between items-center transition-all ${
-                            selectedBatch.id === batch.id 
-                            ? "bg-blue-50 border-l-4 border-l-blue-900 text-blue-900 font-bold" 
-                            : "hover:bg-gray-50 text-gray-600 border-l-4 border-l-transparent"
-                        }`}
-                    >
-                        <span>{batch.title}</span>
-                        {selectedBatch.id === batch.id && <ChevronRight size={18} />}
-                    </button>
+                  <button
+                    key={batch.id}
+                    onClick={() => setSelectedBatch(batch)}
+                    className={`w-full text-left px-4 py-3 rounded-md mb-1 flex justify-between items-center transition-all duration-200 text-sm font-medium ${
+                      selectedBatch.id === batch.id 
+                      ? "bg-[#002147] text-white shadow-md transform scale-[1.02]" 
+                      : "text-slate-600 hover:bg-slate-50 hover:text-[#002147]"
+                    }`}
+                  >
+                    <span>{batch.title}</span>
+                    {selectedBatch.id === batch.id && <ChevronRight size={16} className="text-yellow-400" />}
+                  </button>
                 ))}
+              </div>
             </div>
-            
-            {/* Note Box */}
-            <div className="bg-yellow-50 border border-yellow-200 p-5 rounded-xl text-sm text-yellow-800 mt-6">
-                <strong>Note:</strong> Results are uploaded after official announcement by Dow University (DUHS). If you can't find your result, please contact the admin office.
+
+            {/* Admin Note Box */}
+            <div className="bg-yellow-50 border-l-4 border-yellow-500 p-5 rounded-r-lg shadow-sm">
+              <div className="flex gap-3">
+                <AlertCircle className="text-yellow-600 shrink-0 mt-0.5" size={20} />
+                <div>
+                  <h4 className="font-bold text-yellow-800 text-sm uppercase mb-1">Important Note</h4>
+                  <p className="text-xs text-yellow-800/80 leading-relaxed">
+                    Results are uploaded here after the official announcement by Dow University of Health Sciences (DUHS). 
+                    If you cannot find your result, please contact the Administration Office.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* --- RIGHT SIDE: RESULTS LIST --- */}
-          <div className="w-full lg:w-2/3">
-             <div className="mb-6 border-b border-gray-200 pb-2">
-                <h2 className="text-2xl font-bold text-gray-900">{selectedBatch.title}</h2>
-                <p className="text-gray-500 text-sm">List of announced results</p>
+          {/* --- RIGHT SIDE: RESULTS CONTENT --- */}
+          <div className="w-full lg:w-3/4">
+             <div className="mb-8 flex items-end justify-between border-b border-slate-200 pb-4">
+                <div>
+                  <h2 className="text-3xl font-bold text-[#002147] font-serif">{selectedBatch.title}</h2>
+                  <p className="text-slate-500 mt-1">Academic Performance Records</p>
+                </div>
+                <span className={`px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+                  selectedBatch.status === "Current" ? "bg-green-100 text-green-700" : "bg-blue-100 text-blue-700"
+                }`}>
+                  {selectedBatch.status} Batch
+                </span>
              </div>
 
-             <div className="space-y-4">
+             <div className="grid gap-5">
                 {selectedBatch.semesters.length > 0 ? (
                     selectedBatch.semesters.map((result, idx) => (
-                        <div key={idx} className="group bg-white p-6 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:border-blue-200 transition-all flex flex-col sm:flex-row items-center justify-between gap-4">
+                        <div key={idx} className="group bg-white p-0 rounded-lg border border-slate-200 shadow-sm hover:shadow-lg hover:border-blue-900/30 transition-all duration-300 flex flex-col md:flex-row overflow-hidden">
                             
-                            <div className="flex items-center gap-4 w-full sm:w-auto">
-                                <div className="w-12 h-12 bg-blue-100 text-blue-900 rounded-lg flex items-center justify-center group-hover:bg-blue-900 group-hover:text-yellow-400 transition-colors">
-                                    <FileText size={24} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-lg text-gray-800 group-hover:text-blue-900 transition-colors">
-                                        {result.name}
-                                    </h4>
-                                    <div className="flex items-center gap-2 text-sm text-gray-500">
-                                        <Calendar size={14} />
-                                        <span>Announced: {result.date}</span>
+                            {/* Decorative Left Strip */}
+                            <div className="w-full md:w-2 bg-[#002147] group-hover:bg-yellow-500 transition-colors"></div>
+
+                            <div className="p-6 flex-1 flex flex-col sm:flex-row items-center justify-between gap-6">
+                                <div className="flex items-start gap-4 w-full sm:w-auto">
+                                    <div className="w-14 h-14 bg-slate-100 rounded-lg flex items-center justify-center border border-slate-200 group-hover:bg-[#002147] group-hover:text-white transition-colors duration-300">
+                                        <FileText size={28} />
+                                    </div>
+                                    <div>
+                                        <h4 className="font-bold text-xl text-[#002147] mb-1 font-serif">
+                                            {result.name}
+                                        </h4>
+                                        <div className="flex items-center gap-4 text-sm text-slate-500">
+                                            <span className="flex items-center gap-1.5 bg-slate-50 px-2 py-1 rounded border border-slate-100">
+                                              <Calendar size={14} className="text-yellow-600"/> {result.date}
+                                            </span>
+                                            <span className="text-xs uppercase tracking-wide font-semibold text-slate-400">Gazette Copy</span>
+                                        </div>
                                     </div>
                                 </div>
+
+                                <a 
+                                    href={result.pdf} 
+                                    target="_blank" 
+                                    className="w-full sm:w-auto px-6 py-3 bg-[#002147] text-white text-sm font-semibold rounded-md flex items-center justify-center gap-2 hover:bg-yellow-500 hover:text-[#002147] transition-all duration-300 shadow-md"
+                                >
+                                    <Download size={16} /> Download Result
+                                </a>
                             </div>
-
-                            <a 
-                                href={result.pdf} 
-                                target="_blank" 
-                                // download // Agar chahte ho direct download ho to ye uncomment karo
-                                className="w-full sm:w-auto px-6 py-3 bg-white text-blue-900 border-2 border-blue-900 rounded-lg font-bold flex items-center justify-center gap-2 hover:bg-blue-900 hover:text-white transition-all shadow-sm hover:shadow-lg"
-                            >
-                                <Download size={18} /> View Result
-                            </a>
-
                         </div>
                     ))
                 ) : (
-                    <div className="text-center py-10 bg-white rounded-xl border border-dashed border-gray-300 text-gray-500">
-                        No results uploaded for this session yet.
+                    <div className="text-center py-16 bg-slate-50 rounded-xl border-2 border-dashed border-slate-300">
+                        <div className="bg-slate-200 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 text-slate-400">
+                          <Search size={30} />
+                        </div>
+                        <h3 className="text-lg font-semibold text-slate-700">No Results Found</h3>
+                        <p className="text-slate-500">Results for this session have not been uploaded yet.</p>
                     </div>
                 )}
              </div>
@@ -145,4 +179,4 @@ export default function Results() {
       </Section>
     </div>
   );
-}// Fixed file name
+}
