@@ -23,7 +23,7 @@ const resultsData = [
     semesters: [
       { id: "sem-1", name: "1st Semester", date: "June 2023", pdf: "/results/sample.pdf" },
       { id: "sem-2", name: "2nd Semester", date: "Dec 2023", pdf: "/results/sample.pdf" },
-      { id: "sem-3", name: "3rd Semester", date: "June 2024", pdf: "/results/sample.pdf" },
+      { id: "sem-3", name: "3rd Semester", date: "June 2024", pdf: "/images/results/batch23_sem3.pdf" },
     ]
   },
   {
