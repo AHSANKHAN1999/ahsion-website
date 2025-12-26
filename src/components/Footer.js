@@ -65,8 +65,8 @@ export default function Footer() {
                 <li className="hover:text-white transition cursor-pointer">› Generic BSN (4 Years)</li>
                 <li className="hover:text-white transition cursor-pointer">› Post RN (2 Years)</li>
                 <li className="hover:text-white transition cursor-pointer">› CNA (2 Years)</li>
-                <li className="hover:text-white transition cursor-pointer">› CMW (18 Months)</li>
-                <li className="hover:text-white transition cursor-pointer">› D.I.C.U (1 Year)</li>
+                <li className="hover:text-white transition cursor-pointer">› CMW (2 Years)</li>
+            
             </ul>
           </div>
 
