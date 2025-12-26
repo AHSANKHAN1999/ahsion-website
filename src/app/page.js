@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { siteData } from "@/data/siteData";
 import Section from "@/components/Section";
+import Gallery from "@/components/Gallery";
 import { ArrowRight, Megaphone, Stethoscope, GraduationCap, Baby, HeartPulse, Activity as ActivityIcon, Shield as ShieldIcon, Users, Building2, Globe } from "lucide-react";
 
 // --- CUSTOM CSS FOR TICKER ---
