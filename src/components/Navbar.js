@@ -1,8 +1,9 @@
 "use client";
+
 import { useState } from "react";
 import Link from "next/link";
 import { siteData } from "@/data/siteData";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react"; // LogIn icon add kiya hai
 import Image from "next/image";
 
 export default function Navbar() {
@@ -18,7 +19,7 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           
-          {/* --- LOGO --- */}
+          {/* --- LOGO SECTION (Same as old code) --- */}
           <div className="flex-shrink-0 flex items-center">
             <Link href="/" className="flex items-center gap-3 group">
               <div className="relative w-14 h-14 flex-shrink-0">
@@ -38,6 +39,8 @@ export default function Navbar() {
 
           {/* --- DESKTOP MENU --- */}
           <div className="hidden lg:flex items-center h-full gap-6">
+            
+            {/* Navigation Links with Dropdown Logic */}
             {navItems.map((item) => (
               <div 
                 key={item.label} 
@@ -53,6 +56,7 @@ export default function Navbar() {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-yellow-400 transition-all duration-300 group-hover:w-full"></span>
                 </Link>
 
+                {/* Dropdown Menu */}
                 {item.sub_navigation && isAboutHovered && (
                   <div className="absolute top-full left-0 mt-0 w-56 rounded-b-lg shadow-xl bg-white border-t-2 border-yellow-400 animate-fadeIn">
                     <div className="py-2">
@@ -72,16 +76,30 @@ export default function Navbar() {
               </div>
             ))}
             
-            {/* BUTTON: Ye ab akela nazar ayega (Duplicate nahi hoga) */}
-            <Link
-                href="/admissions"
-                className="bg-blue-900 text-white px-6 py-2.5 rounded-md text-sm font-bold uppercase tracking-wider hover:bg-yellow-400 hover:text-blue-900 transition-all duration-300 shadow-lg transform hover:-translate-y-0.5"
-            >
-                Apply Now
-            </Link>
+            {/* --- NEW BUTTONS AREA (Desktop) --- */}
+            <div className="flex items-center gap-3 ml-2 border-l pl-4 border-gray-200 h-10">
+                
+                {/* 1. Student Portal Button */}
+                <a 
+                  href="https://ahs.sumserp.com/login"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-blue-900 bg-yellow-400 rounded-md hover:bg-yellow-500 transition-all shadow-sm"
+                >
+                   <LogIn size={16} /> Portal
+                </a>
+
+                {/* 2. Apply Now Button */}
+                <Link
+                  href="/apply"
+                  className="bg-blue-900 text-white px-5 py-2 rounded-md text-sm font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 shadow-md"
+                >
+                  Apply Now
+                </Link>
+            </div>
           </div>
 
-          {/* --- MOBILE BUTTON --- */}
+          {/* --- MOBILE HAMBURGER BUTTON --- */}
           <div className="flex items-center lg:hidden">
             <button onClick={() => setIsOpen(!isOpen)} className="text-blue-900 hover:text-yellow-600 focus:outline-none p-2 transition">
               {isOpen ? <X size={32} /> : <Menu size={32} />}
@@ -90,10 +108,12 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* --- MOBILE MENU --- */}
+      {/* --- MOBILE MENU (Modified) --- */}
       {isOpen && (
-        <div className="lg:hidden bg-white shadow-2xl border-t border-gray-100 absolute top-20 left-0 w-full z-40 h-screen overflow-y-auto pb-20">
+        <div className="lg:hidden bg-white shadow-2xl border-t border-gray-100 absolute top-20 left-0 w-full z-40 h-screen overflow-y-auto pb-40">
           <div className="px-4 pt-4 pb-6 space-y-2 bg-white">
+            
+            {/* Links Loop */}
             {navItems.map((item) => (
               <div key={item.label} className="border-b border-gray-50 last:border-0 pb-1"> 
                 {item.sub_navigation ? (
@@ -114,6 +134,7 @@ export default function Navbar() {
                   </Link>
                 )}
 
+                {/* Mobile Dropdown Sub-links */}
                 {item.sub_navigation && openDropdown === item.label && (
                   <div className="pl-4 pt-1 pb-2 bg-gray-50 rounded-lg mb-2">
                     {item.sub_navigation.map((subItem) => (
@@ -131,13 +152,23 @@ export default function Navbar() {
               </div>
             ))}
             
-            <div className="pt-6 pb-4">
-                <Link
-                href="/admissions"
-                onClick={() => setIsOpen(false)}
-                className="block w-full bg-blue-900 text-white text-center px-4 py-4 rounded-lg text-lg font-bold uppercase tracking-wider hover:bg-yellow-400 hover:text-blue-900 transition-all shadow-md"
+            {/* --- MOBILE BUTTONS GRID (New) --- */}
+            <div className="pt-6 pb-8 grid grid-cols-2 gap-3">
+                <a
+                href="https://ahs.sumserp.com/login"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center justify-center gap-2 bg-yellow-400 text-blue-900 px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wider hover:bg-yellow-500 transition-all shadow-md"
                 >
-                Apply Online
+                   <LogIn size={18}/> Portal
+                </a>
+
+                <Link
+                href="/apply"
+                onClick={() => setIsOpen(false)}
+                className="flex items-center justify-center bg-blue-900 text-white px-4 py-3 rounded-lg text-sm font-bold uppercase tracking-wider hover:bg-blue-800 transition-all shadow-md"
+                >
+                Apply Now
                 </Link>
             </div>
           </div>
