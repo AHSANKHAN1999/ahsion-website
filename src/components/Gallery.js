@@ -1,45 +1,9 @@
 import Image from "next/image";
 
 export default function Gallery() {
-  // Yahan bas apni files ke naam likh dein (gallery1, gallery2 etc.)
-  const images = [
-    "/images/gallery/1.jpg",
-    "/images/gallery/2.jpg",
-    "/images/gallery/3.jpg",
-    "/images/gallery/4.jpg",
-    "/images/gallery/5.jpg",
-    "/images/gallery/6.jpg",
-    "/images/gallery/7.jpg",
-    "/images/gallery/8.jpg",
-    "/images/gallery/9.jpg",
-    "/images/gallery/10.jpg",
-    "/images/gallery/11.jpg",
-    "/images/gallery/12.jpg",
-    "/images/gallery/13.jpg",
-    "/images/gallery/14.jpg",
-    "/images/gallery/15.jpg",
-    "/images/gallery/16.jpg",
-    "/images/gallery/17.jpg",
-    "/images/gallery/18.jpg",
-    "/images/gallery/19.jpg",
-    "/images/gallery/20.jpg",
-    "/images/gallery/21.jpg",
-    "/images/gallery/22.jpg",
-    "/images/gallery/23.jpg",
-    "/images/gallery/24.jpg",
-    "/images/gallery/25.jpg",
-    "/images/gallery/26.jpg",
-    "/images/gallery/27.jpg",
-    "/images/gallery/28.jpg",
-    "/images/gallery/29.jpg",
-    "/images/gallery/30.jpg",
-    "/images/gallery/31.jpg",
-    "/images/gallery/32.jpg",
-    "/images/gallery/33.jpg",
-    "/images/gallery/34.jpg",
-    "/images/gallery/35.jpg",
-
-  ];
+  // Ye 1 line ka code khud hi 1 se 35 tak images bana lega
+  // Path: /images/gallery/1.jpg se lekar 35.jpg tak
+  const images = Array.from({ length: 35 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
 
   return (
     <section className="py-20 bg-white">
@@ -53,22 +17,24 @@ export default function Gallery() {
           <h2 className="text-4xl font-extrabold text-blue-900 mt-3">
             Life at <span className="text-yellow-500">AHSION</span>
           </h2>
+          <p className="text-gray-500 mt-2">Moments from our campus activities and events.</p>
         </div>
 
-        {/* --- SIMPLE IMAGE GRID --- */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+        {/* --- IMAGE GRID --- */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {images.map((src, index) => (
-            <div key={index} className="relative group h-64 w-full overflow-hidden rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div key={index} className="relative group h-64 w-full overflow-hidden rounded-xl bg-gray-100 border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300">
               
               <Image
                 src={src}
                 alt={`Gallery Image ${index + 1}`}
                 fill
-                className="object-cover transform transition-transform duration-700 group-hover:scale-110"
+                className="object-cover transition-transform duration-700 group-hover:scale-110"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               
-              {/* Halki si Blue Shade on Hover (Optional - remove if not needed) */}
-              <div className="absolute inset-0 bg-blue-900/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              {/* Blue Overlay Effect */}
+              <div className="absolute inset-0 bg-blue-900/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
             </div>
           ))}
