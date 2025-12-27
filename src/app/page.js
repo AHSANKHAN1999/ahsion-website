@@ -173,7 +173,7 @@ export default function Home() {
           {about.button.text} &rarr;
         </Link>
       </Section>
-
+<Gallery />
       {/* ================= PROGRAMS GRID (New Card Style) ================= */}
       <div className="bg-gray-50 py-20">
         <Section>
