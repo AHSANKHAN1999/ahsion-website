@@ -8,14 +8,16 @@ import Section from "@/components/Section";
 import Gallery from "@/components/Gallery";
 import { ArrowRight, Megaphone, Stethoscope, GraduationCap, Baby, HeartPulse, Activity as ActivityIcon, Shield as ShieldIcon, Users, Building2, Globe } from "lucide-react";
 
-// --- CUSTOM CSS FOR TICKER ---
+// --- CUSTOM CSS FOR TICKER (UPDATED) ---
 const tickerAnimation = `
   @keyframes scroll {
     0% { transform: translateX(100%); }
     100% { transform: translateX(-100%); }
   }
   .animate-scroll {
-    display: inline-block;
+    display: flex;             /* Pehle yahan masla tha, ab flex hai */
+    align-items: center;       /* Ye text ko bilkul center (middle) mein rakhega */
+    height: 100%;              /* Height full karega */
     white-space: nowrap;
     animation: scroll 30s linear infinite;
   }
@@ -122,6 +124,7 @@ export default function Home() {
       </div>
 
       {/* ================= NEWS TICKER (Blue & Yellow) ================= */}
+      
       <div className="bg-blue-900 border-t border-blue-800 relative z-30">
         <div className="max-w-7xl mx-auto flex items-center h-12">
             {/* Label */}
