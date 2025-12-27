@@ -1,12 +1,12 @@
 "use client";
 
 export default function Gallery() {
-  // 1 se 35 tak images
-  const allImages = Array.from({ length: 35 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
+  // 1 se 145 tak images
+  const allImages = Array.from({ length: 145 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
 
   // Images ko 2 Hisson mein baant diya
-  const row1 = allImages.slice(0, 18);
-  const row2 = allImages.slice(18, 35);
+  const row1 = allImages.slice(0, 72);
+  const row2 = allImages.slice(72, 145);
 
   return (
     <section className="bg-white py-12 overflow-hidden border-t border-b border-gray-100 flex flex-col gap-10">
