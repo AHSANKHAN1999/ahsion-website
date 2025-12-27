@@ -1,12 +1,13 @@
 "use client";
 
 export default function Gallery() {
-  // 1 se 145 tak images
-  const allImages = Array.from({ length: 145 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
+  // 1 se 146 tak images
+  const allImages = Array.from({ length: 146 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
 
   // Images ko 2 Hisson mein baant diya
-  const row1 = allImages.slice(0, 72);
-  const row2 = allImages.slice(72, 145);
+  const half = Math.ceil(allImages.length / 2);
+  const row1 = allImages.slice(0, half);
+  const row2 = allImages.slice(half, allImages.length);
 
   return (
     <section className="bg-white py-12 overflow-hidden border-t border-b border-gray-100 flex flex-col gap-10">
@@ -22,7 +23,6 @@ export default function Gallery() {
       </div>
 
       {/* === ROW 1: Right to Left (⏩) === */}
-      {/* Note: Yahan se 'rotate' ki saari classes hata di gayi hain */}
       <div className="relative w-full"> 
         <div className="flex w-max animate-scroll-left hover:pause">
           {[...row1, ...row1].map((src, index) => (
@@ -40,7 +40,6 @@ export default function Gallery() {
       </div>
 
       {/* === ROW 2: Left to Right (⏪) === */}
-      {/* Note: Yahan se bhi 'rotate' hata diya gaya hai */}
       <div className="relative w-full"> 
         <div className="flex w-max animate-scroll-right hover:pause">
           {[...row2, ...row2].map((src, index) => (
@@ -69,14 +68,15 @@ export default function Gallery() {
           100% { transform: translateX(0); }
         }
 
+        /* SPEED SETTING: 400s kar diya hai (bohot slow aur sukoon wala) */
         .animate-scroll-left {
           display: flex;
-          animation: scrollLeft 60s linear infinite;
+          animation: scrollLeft 400s linear infinite;
         }
         
         .animate-scroll-right {
           display: flex;
-          animation: scrollRight 60s linear infinite;
+          animation: scrollRight 400s linear infinite;
         }
 
         .hover\:pause:hover {

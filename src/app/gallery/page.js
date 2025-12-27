@@ -1,16 +1,15 @@
 "use client";
 
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import Image from "next/image";
 
 export default function GalleryPage() {
-  // Ab yahan 146 images hain
+  // 146 images ka logic
   const allImages = Array.from({ length: 146 }, (_, i) => `/images/gallery/${i + 1}.jpg`);
 
   return (
     <main className="bg-gray-50 min-h-screen">
-      <Navbar />
+      
+      {/* Note: Navbar yahan se hata diya hai kyunke layout.js khud laga dega */}
 
       {/* --- PAGE HEADER --- */}
       <div className="bg-blue-900 py-16 text-center text-white relative overflow-hidden">
@@ -58,7 +57,7 @@ export default function GalleryPage() {
 
       </section>
 
-      <Footer />
+      {/* Footer bhi hata diya hai, wo bhi khud aa jayega */}
     </main>
   );
 }
