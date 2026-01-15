@@ -91,7 +91,7 @@ export default function Navbar() {
 
                 {/* 2. Apply Now Button */}
                 <Link
-                  href="/apply"
+                  href="/admissions"
                   className="bg-blue-900 text-white px-5 py-2 rounded-md text-sm font-bold uppercase tracking-wider hover:bg-blue-800 transition-all duration-300 shadow-md"
                 >
                   Apply Now
