@@ -79,7 +79,7 @@ export default function Admissions() {
             Your Future Starts Here
           </span>
           <h1 className="text-4xl md:text-5xl font-extrabold mb-6 tracking-tight">
-            Admissions Open 2025
+            Admissions Open 2026-27
           </h1>
           <p className="text-lg md:text-xl text-blue-100 max-w-2xl mx-auto leading-relaxed">
             Join AHSION and start your journey towards a noble career in Nursing and Healthcare.
