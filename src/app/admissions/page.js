@@ -1,8 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import emailjs from "@emailjs/browser";
-import Section from "@/components/Section";
+import Section from "@/components/Section"; // EmailJS ka import hata diya hai
 import { FileText, Upload, UserCheck, CheckCircle, Send, PhoneCall } from "lucide-react";
 
 export default function Admissions() {
@@ -38,33 +37,32 @@ export default function Admissions() {
     },
   ];
 
-  // --- EMAIL JS HANDLER ---
+  // --- GOOGLE SHEETS HANDLER ---
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
 
-    // Aapki IDs
-    const SERVICE_ID = "service_bms581r";
-    const TEMPLATE_ID = "template_citu9zc";
-    const PUBLIC_KEY = "c827R_Jt2qpI19ymD";
+    const formData = new FormData(formRef.current);
+    
+    // Aapka Google Apps Script URL
+    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbz1nrxCxwYCH6uXXBshWuqrKHKWkPnsLLzOw_qSl1zk_yya6EfroWghNJCJbnqjVrGwtA/exec";
 
-    emailjs
-      .sendForm(SERVICE_ID, TEMPLATE_ID, formRef.current, {
-        publicKey: PUBLIC_KEY,
+    fetch(SCRIPT_URL, {
+      method: "POST",
+      body: formData,
+      mode: "no-cors", // Ye zaroori hai CORS error se bachne ke liye
+    })
+      .then(() => {
+        console.log("SUCCESS!");
+        setSubmitted(true);
+        setLoading(false);
+        e.target.reset();
       })
-      .then(
-        () => {
-          console.log("SUCCESS!");
-          setSubmitted(true);
-          setLoading(false);
-          e.target.reset();
-        },
-        (error) => {
-          console.log("FAILED...", error.text);
-          setLoading(false);
-          alert("Something went wrong. Please try again.");
-        }
-      );
+      .catch((error) => {
+        console.log("FAILED...", error);
+        setLoading(false);
+        alert("Something went wrong. Please try again.");
+      });
   };
 
   return (
@@ -137,7 +135,7 @@ export default function Admissions() {
             </div>
           </div>
 
-          {/* --- RIGHT SIDE: FORM (With EmailJS Logic) --- */}
+          {/* --- RIGHT SIDE: FORM --- */}
           <div>
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden border-t-4 border-yellow-400">
               <div className="p-8">
@@ -166,7 +164,7 @@ export default function Admissions() {
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Full Name</label>
                       <input 
                         type="text" 
-                        name="user_name" // EmailJS Variable Name
+                        name="name"
                         placeholder="e.g. Ahsan Khan"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all bg-gray-50 focus:bg-white"
@@ -178,7 +176,7 @@ export default function Admissions() {
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Email Address</label>
                       <input 
                         type="email" 
-                        name="user_email" // EmailJS Variable Name
+                        name="email"
                         placeholder="email@example.com"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all bg-gray-50 focus:bg-white"
@@ -190,7 +188,7 @@ export default function Admissions() {
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Phone Number</label>
                       <input 
                         type="tel" 
-                        name="contact_number" // EmailJS Variable Name
+                        name="phone"
                         placeholder="0300-1234567"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all bg-gray-50 focus:bg-white"
@@ -201,7 +199,7 @@ export default function Admissions() {
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Interested Program</label>
                       <select 
-                        name="program" // EmailJS Variable Name
+                        name="program"
                         required
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all bg-gray-50 focus:bg-white cursor-pointer"
                       >
@@ -218,7 +216,7 @@ export default function Admissions() {
                     <div>
                       <label className="block text-sm font-semibold text-gray-700 mb-1">Message (Optional)</label>
                       <textarea 
-                        name="message" // EmailJS Variable Name
+                        name="message"
                         rows="3"
                         placeholder="Any specific questions?"
                         className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-yellow-400 focus:border-yellow-400 outline-none transition-all bg-gray-50 focus:bg-white"
